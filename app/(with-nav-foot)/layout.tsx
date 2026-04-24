@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "../globals.css";
+import Footer from "./component/footer/footer";
+import Navbar from "./component/navbar/navbar";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -12,8 +14,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html>
-      <body>{children}</body>
-    </html>
+    <>
+      <Navbar />
+      <div className="min-h-screen">{children}</div>
+      <Footer />
+    </>
   );
 }
