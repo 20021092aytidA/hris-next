@@ -12,11 +12,13 @@ export default async function ViewAdminPage() {
   };
   let listAdmins: AdminType[] = [];
 
-  const admins = await fetch("http://localhost:8080/hris-api/v1/admins");
-  if (admins.status === 200) {
-    const jsonAdmins = await admins.json();
-    listAdmins = jsonAdmins.data;
-  }
+  try {
+    const admins = await fetch("http://localhost:8080/hris-api/v1/admins");
+    if (admins.status === 200) {
+      const jsonAdmins = await admins.json();
+      listAdmins = jsonAdmins.data;
+    }
+  } catch (error) {}
 
   return (
     <div className="p-4">
